@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<modules xmlns:da="http://dotaddict.org/da/">
+  <module id="cleanURLs">
+    <name>Clean URLs</name>
+    <version>1.1.1</version>
+    <author>Pierre Rudloff and contributors</author>
+    <desc>Removes diacritics and punctuation from URLs</desc>
+    <file>https://github.com/JcDenis/cleanURLs/releases/download/v1.1.1/plugin-cleanURLs.zip</file>
+    <da:dcmin>2.24</da:dcmin>
+    <da:details>https://github.com/JcDenis/cleanURLs</da:details>
+    <da:support>https://github.com/JcDenis/cleanURLs</da:support>
+  </module>
+</modules>

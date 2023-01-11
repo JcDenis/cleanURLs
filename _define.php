@@ -1,15 +1,15 @@
 <?php
 /**
- * Plugin description
- * 
- * PHP Version 5
- * 
- * @category Plugin
- * @package  CleanURLs
- * @author   Pierre Rudloff <contact@rudloff.pro>
- * @license  http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License
- * @link     http://rudloff.pro
- * */
+ * @brief cleanURLs, a plugin for Dotclear 2
+ *
+ * @package Dotclear
+ * @subpackage Plugin
+ *
+ * @author Pierre Rudloff and contributors
+ *
+ * @copyright Jean-Christian Denis
+ * @copyright GPL-3.0 https://www.gnu.org/licenses/gpl-3.0.html
+ */
 if (!defined('DC_RC_PATH')) {
     return;
 }
