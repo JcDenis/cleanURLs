@@ -14,6 +14,6 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-Clearbricks::lib()->autoload(['CleanURLs' => __DIR__ . '/CleanURLs.php']);
+Clearbricks::lib()->autoload(['CleanURLs' => __DIR__ . '/inc/class.cleanurls.php']);
 
 dcCore::app()->addBehavior('coreBeforePostCreate', ['CleanURLs', 'clean']);
