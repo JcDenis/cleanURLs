@@ -13,12 +13,21 @@
 if (!defined('DC_RC_PATH')) {
     return;
 }
- 
+
 $this->registerModule(
-    /* Name */            'Clean URLs',
-    /* Description */        'Removes diacritics and punctuation from URLs',
-    /* Author */            'Pierre Rudloff',
-    /* Version */            '0.1.1',
-    /* Permissions */        'usage,contentadmin'
+    'Clean URLs',
+    'Removes diacritics and punctuation from URLs',
+    'Pierre Rudloff and contributors',
+    '1.1.1',
+    [
+        'requires'    => [['core', '2.24']],
+        'permissions' => dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_USAGE,
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]),
+        'type'        => 'plugin',
+        'support'     => 'https://github.com/JcDenis/' . basename(__DIR__),
+        'details'     => 'https://github.com/JcDenis/' . basename(__DIR__),
+        'repository'  => 'https://raw.githubusercontent.com/JcDenis/' . basename(__DIR__) . '/master/dcstore.xml',
+    ]
 );
-?>
