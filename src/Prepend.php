@@ -10,10 +10,30 @@
  * @copyright Jean-Christian Denis
  * @copyright GPL-3.0 https://www.gnu.org/licenses/gpl-3.0.html
  */
-if (!defined('DC_RC_PATH')) {
-    return;
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\cleanURLs;
+
+use dcCore;
+use dcNsProcess;
+
+class Prepend extends dcNsProcess
+{
+    public static function init(): bool
+    {
+        self::$init = true;
+
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
+        }
+
+        dcCore::app()->addBehavior('coreBeforePostCreate', [CleanURLs::class, 'clean']);
+
+        return true;
+    }
 }
-
-Clearbricks::lib()->autoload(['CleanURLs' => __DIR__ . '/inc/class.cleanurls.php']);
-
-dcCore::app()->addBehavior('coreBeforePostCreate', ['CleanURLs', 'clean']);
