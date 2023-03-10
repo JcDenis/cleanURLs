@@ -18,16 +18,16 @@ $this->registerModule(
     'Clean URLs',
     'Removes diacritics and punctuation from URLs',
     'Pierre Rudloff and contributors',
-    '1.1.1',
+    '1.3',
     [
-        'requires'    => [['core', '2.24']],
+        'requires'    => [['core', '2.25']],
         'permissions' => dcCore::app()->auth->makePermissions([
             dcAuth::PERMISSION_USAGE,
             dcAuth::PERMISSION_CONTENT_ADMIN,
         ]),
-        'type'        => 'plugin',
-        'support'     => 'https://github.com/JcDenis/' . basename(__DIR__),
-        'details'     => 'https://github.com/JcDenis/' . basename(__DIR__),
-        'repository'  => 'https://raw.githubusercontent.com/JcDenis/' . basename(__DIR__) . '/master/dcstore.xml',
+        'type'       => 'plugin',
+        'support'    => 'https://github.com/JcDenis/' . basename(__DIR__),
+        'details'    => 'https://github.com/JcDenis/' . basename(__DIR__),
+        'repository' => 'https://raw.githubusercontent.com/JcDenis/' . basename(__DIR__) . '/master/dcstore.xml',
     ]
 );
