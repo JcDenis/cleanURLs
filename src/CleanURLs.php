@@ -222,16 +222,27 @@ class CleanURLs
     }
 
     /**
-     * Clean URLs from diacritics and punctuation
+     * Clean string from diacritics and punctuation
+     *
+     * @param null|string $str The string
+     *
+     * @return null|string The cleaned string
+     * */
+    public static function cleanStr(?string $str): ?string
+    {
+        return is_string($str) ? strtr(self::removeAccents($str), ',!.?;', '-----') : $str;
+    }
+
+    /**
+     * Clean post URLs from diacritics and punctuation
      *
      * @param object $blog Current blog
      * @param object $cur  Cursor
      *
      * @return void
      * */
-    public static function clean($blog, $cur)
+    public static function cleanPost($blog, $cur)
     {
-        $cur->post_url = self::removeAccents($cur->post_url);
-        $cur->post_url = strtr($cur->post_url, ',!.?;', '-----');
+        $cur->post_url = self::cleanStr($cur->post_url);
     }
 }

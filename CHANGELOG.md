@@ -1,3 +1,7 @@
+1.3.1 - 2023.03.12
+* fix previously introduced bug
+* add method to clean a string
+
 1.3 - 2023.03.10
 * update to dotclear 2.25
 * use namespace

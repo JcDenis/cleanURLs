@@ -32,7 +32,7 @@ class Prepend extends dcNsProcess
             return false;
         }
 
-        dcCore::app()->addBehavior('coreBeforePostCreate', [CleanURLs::class, 'clean']);
+        dcCore::app()->addBehavior('coreBeforePostCreate', [CleanURLs::class, 'cleanPost']);
 
         return true;
     }
