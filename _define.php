@@ -18,7 +18,7 @@ $this->registerModule(
     'Clean URLs',
     'Removes diacritics and punctuation from URLs',
     'Pierre Rudloff and contributors',
-    '1.3.1',
+    '1.3.2',
     [
         'requires'    => [['core', '2.25']],
         'permissions' => dcCore::app()->auth->makePermissions([

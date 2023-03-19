@@ -1,3 +1,6 @@
+1.3.2 - 2023.03.19
+* fix init check
+
 1.3.1 - 2023.03.12
 * fix previously introduced bug
 * add method to clean a string
