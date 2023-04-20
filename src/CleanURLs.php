@@ -14,6 +14,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\cleanURLs;
 
+use cursor;
+use dcBlog;
+
 /**
  * Class to remove problematic characters from URLs
  *
@@ -30,14 +33,14 @@ class CleanURLs
     /**
      * Check if a string is UTF-8
      *
-     * @param string $str String to check
-     *
-     * @return  bool
-     *
      * @author  WordPress
      * @license https://wordpress.org/about/gpl/ GPLv2
+     *
+     * @param   string  $str    The string to check
+     *
+     * @return  bool
      * */
-    public static function seemsUtf8($str)
+    public static function seemsUtf8(string $str): bool
     {
         $length = strlen($str);
         for ($i = 0; $i < $length; $i++) {
@@ -72,14 +75,14 @@ class CleanURLs
      *
      * If there are no accent characters, then the string given is just returned.
      *
-     * @param string $string Text that might have accent characters
-     *
-     * @return string Filtered string with replaced "nice" characters.
-     *
      * @author  WordPress
      * @license https://wordpress.org/about/gpl/ GPLv2
+     *
+     * @param   string  $string     Text that might have accent characters
+     *
+     * @return  string  Filtered string with replaced "nice" characters.
      */
-    public static function removeAccents($string)
+    public static function removeAccents(string $string): string
     {
         if (!preg_match('/[\x80-\xff]/', $string)) {
             return $string;
@@ -222,27 +225,25 @@ class CleanURLs
     }
 
     /**
-     * Clean string from diacritics and punctuation
+     * Clean string from diacritics and punctuation.
      *
-     * @param null|string $str The string
+     * @param   null|string     $str    The string
      *
-     * @return null|string The cleaned string
+     * @return  null|string     The cleaned string
      * */
     public static function cleanStr(?string $str): ?string
     {
-        return is_string($str) ? strtr(self::removeAccents($str), ',!.?;', '-----') : $str;
+        return is_null($str) ? null : strtr(self::removeAccents($str), ',!.?;', '-----');
     }
 
     /**
-     * Clean post URLs from diacritics and punctuation
+     * Clean post URLs from diacritics and punctuation.
      *
-     * @param object $blog Current blog
-     * @param object $cur  Cursor
-     *
-     * @return void
+     * @param   dcBlog  $blog   The blog instance
+     * @param   cursor  $cur    The post cursor
      * */
-    public static function cleanPost($blog, $cur)
+    public static function cleanPost(dcBlog $blog, cursor $cur): void
     {
-        $cur->post_url = self::cleanStr($cur->post_url);
+        $cur->setField('post_url', self::cleanStr($cur->getField('post_url')));
     }
 }
