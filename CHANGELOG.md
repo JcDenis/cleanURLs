@@ -1,3 +1,8 @@
+1.4 - 2023.04.23
+* require dotclear 2.26
+* use latest dotclear namespace
+* fix nullsafe warnings
+
 1.3.2 - 2023.03.19
 * fix init check
 

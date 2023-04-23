@@ -3,7 +3,7 @@
 [![Release](https://img.shields.io/github/v/release/JcDenis/cleanURLs)](https://github.com/JcDenis/cleanURLs/releases)
 [![Date](https://img.shields.io/github/release-date/JcDenis/cleanURLs)](https://github.com/JcDenis/cleanURLs/releases)
 [![Issues](https://img.shields.io/github/issues/JcDenis/cleanURLs)](https://github.com/JcDenis/cleanURLs/issues)
-[![Dotclear](https://img.shields.io/badge/dotclear-v2.25-blue.svg)](https://fr.dotclear.org/download)
+[![Dotclear](https://img.shields.io/badge/dotclear-v2.26-blue.svg)](https://fr.dotclear.org/download)
 [![Dotaddict](https://img.shields.io/badge/dotaddict-official-green.svg)](https://plugins.dotaddict.org/dc2/details/cleanURLs)
 [![License](https://img.shields.io/github/license/JcDenis/cleanURLs)](https://github.com/JcDenis/cleanURLs/blob/master/LICENSE)
 
@@ -18,7 +18,7 @@ It removes diacritics and punctuation from URLs...
 
  _cleanURLs_ requires: 
 
-  * Dotclear 2.25
+  * Dotclear 2.26
 
 ## USAGE
 
