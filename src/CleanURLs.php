@@ -14,8 +14,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\cleanURLs;
 
-use cursor;
 use dcBlog;
+use Dotclear\Database\Cursor;
 
 /**
  * Class to remove problematic characters from URLs
@@ -240,9 +240,9 @@ class CleanURLs
      * Clean post URLs from diacritics and punctuation.
      *
      * @param   dcBlog  $blog   The blog instance
-     * @param   cursor  $cur    The post cursor
+     * @param   Cursor  $cur    The post Cursor
      * */
-    public static function cleanPost(dcBlog $blog, cursor $cur): void
+    public static function cleanPost(dcBlog $blog, Cursor $cur): void
     {
         $cur->setField('post_url', self::cleanStr($cur->getField('post_url')));
     }
