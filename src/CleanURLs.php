@@ -30,6 +30,37 @@ use Dotclear\Database\Cursor;
  * */
 class CleanURLs
 {
+    public const CONVERT_FROM_CHARS = ',!.?;:@$«»°*';
+    public const CONVERT_TO_CHAR    = '-';
+
+    /** @var    string  $convert_from_chars     List of special chars to convert */
+    public static string $convert_from_chars = self::CONVERT_FROM_CHARS;
+
+    /** @var    string  $convert_to_char    A char to convert to */
+    public static string $convert_to_char = self::CONVERT_TO_CHAR;
+
+    /**
+     * Reset to default values.
+     */
+    public static function reset(): void
+    {
+        self::$convert_from_chars = self::CONVERT_FROM_CHARS;
+        self::$convert_to_char    = self::CONVERT_TO_CHAR;
+    }
+
+    /**
+     * Convert specials chars to a another char.
+     *
+     * @param   null|string     $str    The string
+     *
+     * @return  null|string     The converted string
+     */
+    public static function charsToChar(?string $str): ?string
+    {
+        return is_null($str) || strlen(self::$convert_to_char) != 1 ? $str :
+            str_replace(str_split(self::$convert_from_chars), self::$convert_to_char, $str);
+    }
+
     /**
      * Check if a string is UTF-8
      *
@@ -223,7 +254,6 @@ class CleanURLs
 
         return $string;
     }
-
     /**
      * Clean string from diacritics and punctuation.
      *
@@ -233,7 +263,7 @@ class CleanURLs
      * */
     public static function cleanStr(?string $str): ?string
     {
-        return is_null($str) ? null : strtr(self::removeAccents($str), ',!.?;', '-----');
+        return is_null($str) ? null : self::charsToChar(self::removeAccents($str));
     }
 
     /**
