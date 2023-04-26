@@ -1,3 +1,6 @@
+1.4.1 - 2026.04.26
+* add special chars to convert
+
 1.4 - 2023.04.23
 * require dotclear 2.26
 * use latest dotclear namespace
