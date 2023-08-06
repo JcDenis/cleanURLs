@@ -1,10 +1,9 @@
 # README
 
-[![Release](https://img.shields.io/github/v/release/JcDenis/cleanURLs)](https://git.dotclear.watch/JcDenis/cleanURLs/releases)
-[![Date](https://img.shields.io/github/release-date/JcDenis/cleanURLs)](https://git.dotclear.watch/JcDenis/cleanURLs/releases)
-[![Issues](https://img.shields.io/github/issues/JcDenis/cleanURLs)](https://git.dotclear.watch/JcDenis/cleanURLs/issues)
-[![Dotclear](https://img.shields.io/badge/dotclear-v2.27-blue.svg)](https://fr.dotclear.org/download)
-[![Dotaddict](https://img.shields.io/badge/dotaddict-official-green.svg)](https://plugins.dotaddict.org/dc2/details/cleanURLs)
+[![Release](https://img.shields.io/badge/release-1.5-a2cbe9.svg)](https://git.dotclear.watch/JcDenis/cleanURLs/releases)
+[![Date](https://img.shields.io/badge/date-2023.08.06-c44d58.svg)](https://git.dotclear.watch/JcDenis/cleanURLs/releases)
+[![Dotclear](https://img.shields.io/badge/dotclear-v2.27-137bbb.svg)](https://fr.dotclear.org/download)
+[![Dotaddict](https://img.shields.io/badge/dotaddict-official-9ac123.svg)](https://plugins.dotaddict.org/dc2/details/cleanURLs)
 [![License](https://img.shields.io/github/license/JcDenis/cleanURLs)](https://git.dotclear.watch/JcDenis/cleanURLs/blob/master/LICENSE)
 
 ## WHAT IS ENHANCEPOSTCONTENT ?
