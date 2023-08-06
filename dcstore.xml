@@ -2,12 +2,12 @@
 <modules xmlns:da="http://dotaddict.org/da/">
   <module id="cleanURLs">
     <name>Clean URLs</name>
-    <version>1.4.1</version>
+    <version>1.5</version>
     <author>Pierre Rudloff and contributors</author>
     <desc>Removes diacritics and punctuation from URLs</desc>
-    <file>https://github.com/JcDenis/cleanURLs/releases/download/v1.4.1/plugin-cleanURLs.zip</file>
-    <da:dcmin>2.26</da:dcmin>
-    <da:details>https://github.com/JcDenis/cleanURLs</da:details>
-    <da:support>https://github.com/JcDenis/cleanURLs</da:support>
+    <file>https://gitea.dotclear.watch/JcDenis/cleanURLs/releases/download/v1.5/plugin-cleanURLs.zip</file>
+    <da:dcmin>2.27</da:dcmin>
+    <da:details>https://git.dotclear.watch/JcDenis/cleanURLs/src/branch/master/README.md</da:details>
+    <da:support>https://git.dotclear.watch/JcDenis/cleanURLs/issues</da:support>
   </module>
 </modules>
