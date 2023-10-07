@@ -14,16 +14,18 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
+use Dotclear\App;
+
 $this->registerModule(
     'Clean URLs',
     'Removes diacritics and punctuation from URLs',
     'Pierre Rudloff and contributors',
-    '1.5',
+    '1.6',
     [
-        'requires'    => [['core', '2.27']],
-        'permissions' => dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_USAGE,
-            dcCore::app()->auth::PERMISSION_CONTENT_ADMIN,
+        'requires'    => [['core', '2.28']],
+        'permissions' => App::auth()->makePermissions([
+            App::auth()::PERMISSION_USAGE,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
         ]),
         'type'       => 'plugin',
         'support'    => 'https://git.dotclear.watch/JcDenis/' . basename(__DIR__) . '/issues',
