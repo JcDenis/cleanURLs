@@ -1,35 +1,30 @@
 <?php
 /**
- * @brief cleanURLs, a plugin for Dotclear 2
+ * @file
+ * @brief       The plugin cleanURLs definition
+ * @ingroup     cleanURLs
  *
- * @package Dotclear
- * @subpackage Plugin
+ * @defgroup    cleanURLs Plugin cleanURLs.
  *
- * @author Pierre Rudloff and contributors
+ * Removes diacritics and punctuation from URLs.
  *
- * @copyright Jean-Christian Denis
- * @copyright GPL-3.0 https://www.gnu.org/licenses/gpl-2.0.html
+ * @author      Pierre Rudloff (author)
+ * @author      Jean-Christian Denis (latest)
+ * @copyright   GPL-3.0 https://www.gnu.org/licenses/gpl-3.0.html
  */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
-
-use Dotclear\App;
+declare(strict_types=1);
 
 $this->registerModule(
     'Clean URLs',
     'Removes diacritics and punctuation from URLs',
     'Pierre Rudloff and contributors',
-    '1.6',
+    '1.6.1',
     [
         'requires'    => [['core', '2.28']],
-        'permissions' => App::auth()->makePermissions([
-            App::auth()::PERMISSION_USAGE,
-            App::auth()::PERMISSION_CONTENT_ADMIN,
-        ]),
-        'type'       => 'plugin',
-        'support'    => 'https://git.dotclear.watch/JcDenis/' . basename(__DIR__) . '/issues',
-        'details'    => 'https://git.dotclear.watch/JcDenis/' . basename(__DIR__) . '/src/branch/master/README.md',
-        'repository' => 'https://git.dotclear.watch/JcDenis/' . basename(__DIR__) . '/raw/branch/master/dcstore.xml',
+        'permissions' => 'My',
+        'type'        => 'plugin',
+        'support'     => 'https://git.dotclear.watch/JcDenis/' . basename(__DIR__) . '/issues',
+        'details'     => 'https://git.dotclear.watch/JcDenis/' . basename(__DIR__) . '/src/branch/master/README.md',
+        'repository'  => 'https://git.dotclear.watch/JcDenis/' . basename(__DIR__) . '/raw/branch/master/dcstore.xml',
     ]
 );

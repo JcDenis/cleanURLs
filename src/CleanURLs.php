@@ -1,42 +1,48 @@
 <?php
-/**
- * @brief cleanURLs, a plugin for Dotclear 2
- *
- * @package Dotclear
- * @subpackage Plugin
- *
- * @author Pierre Rudloff and contributors
- *
- * @copyright Jean-Christian Denis
- * @copyright GPL-3.0 https://www.gnu.org/licenses/gpl-3.0.html
- */
+
 declare(strict_types=1);
 
 namespace Dotclear\Plugin\cleanURLs;
 
-use Dotclear\Core\Blog;
+use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Database\Cursor;
 
 /**
- * Class to remove problematic characters from URLs
+ * @brief       cleanURLs main class.
+ * @ingroup     cleanURLs
  *
- * PHP Version 5
- *
- * @category Plugin
- * @package  CleanURLs
- * @author   Pierre Rudloff <contact@rudloff.pro>
- * @license  http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License
- * @link     http://rudloff.pro
- * */
+ * @author      Pierre Rudloff (author)
+ * @author      Jean-Christian Denis (latest)
+ * @copyright   GPL-3.0 https://www.gnu.org/licenses/gpl-3.0.html
+ */
 class CleanURLs
 {
+    /**
+     * Chars to convert from.
+     *
+     * @var     string  CONVERT_FROM_CHARS
+     */
     public const CONVERT_FROM_CHARS = ',!.?;:@$«»°*';
-    public const CONVERT_TO_CHAR    = '-';
 
-    /** @var    string  $convert_from_chars     List of special chars to convert */
+    /**
+     * Chars to convert to.
+     *
+     * @var     string  CONVERT_TO_CHAR
+     */
+    public const CONVERT_TO_CHAR = '-';
+
+    /**
+     * List of special chars to convert.
+     *
+     * @var     string  $convert_from_chars
+     */
     public static string $convert_from_chars = self::CONVERT_FROM_CHARS;
 
-    /** @var    string  $convert_to_char    A char to convert to */
+    /**
+     * A char to convert to.
+     *
+     * @var     string  $convert_to_char
+     */
     public static string $convert_to_char = self::CONVERT_TO_CHAR;
 
     /**
@@ -272,7 +278,7 @@ class CleanURLs
      * @param   Blog    $blog   The blog instance
      * @param   Cursor  $cur    The post Cursor
      * */
-    public static function cleanPost(Blog $blog, Cursor $cur): void
+    public static function cleanPost(BlogInterface $blog, Cursor $cur): void
     {
         $cur->setField('post_url', self::cleanStr($cur->getField('post_url')));
     }
