@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\cleanURLs;
 
 use Dotclear\App;
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 
 /**
  * @brief       cleanURLs prepend class.
@@ -15,8 +15,10 @@ use Dotclear\Core\Process;
  * @author      Jean-Christian Denis (latest)
  * @copyright   GPL-3.0 https://www.gnu.org/licenses/gpl-3.0.html
  */
-class Prepend extends Process
+class Prepend
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         return self::status(My::checkContext(My::PREPEND));
