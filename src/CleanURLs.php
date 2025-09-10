@@ -275,8 +275,8 @@ class CleanURLs
     /**
      * Clean post URLs from diacritics and punctuation.
      *
-     * @param   Blog    $blog   The blog instance
-     * @param   Cursor  $cur    The post Cursor
+     * @param   BlogInterface   $blog   The blog instance
+     * @param   Cursor          $cur    The post Cursor
      * */
     public static function cleanPost(BlogInterface $blog, Cursor $cur): void
     {
