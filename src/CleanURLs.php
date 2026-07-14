@@ -260,6 +260,7 @@ class CleanURLs
 
         return $string;
     }
+
     /**
      * Clean string from diacritics and punctuation.
      *
@@ -280,6 +281,8 @@ class CleanURLs
      * */
     public static function cleanPost(BlogInterface $blog, Cursor $cur): void
     {
-        $cur->setField('post_url', self::cleanStr($cur->getField('post_url')));
+        if (is_string($cur->getField('post_url'))) {
+            $cur->setField('post_url', self::cleanStr($cur->getField('post_url')));
+        }
     }
 }
