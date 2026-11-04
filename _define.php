@@ -22,7 +22,7 @@ $this->registerModule(
     'Clean URLs',
     'Removes diacritics and punctuation from URLs',
     'Pierre Rudloff and contributors',
-    '1.7',
+    '1.8',
     [
         'requires'    => [['core', '2.39']],
         'permissions' => 'My',
