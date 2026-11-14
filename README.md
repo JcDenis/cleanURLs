@@ -12,6 +12,8 @@ _cleanUrls_ is a plugin for the open-source web publishing software called [Dotc
 
 > It removes diacritics and punctuation from URLs...
 
+A [user guide in French](https://github.com/JcDenis/cleanURLs/blob/master/docs/fr/utilisation.md) is available.
+
 ## REQUIREMENTS
 
 * Dotclear 2.39
@@ -27,6 +29,7 @@ accents are removed, punctuation is replaced by dashes.
 
 ## LINKS
 
+* [User guide (in French)](https://github.com/JcDenis/cleanURLs/blob/master/docs/fr/utilisation.md)
 * [License](https://github.com/JcDenis/cleanURLs/blob/master/LICENSE)
 * [Packages & details](https://github.com/JcDenis/cleanURLs/releases) (or on [Repository](https://dotclear.org/plugin/detail/cleanURLs))
 * [Sources & contributions](https://github.com/JcDenis/cleanURLs)
