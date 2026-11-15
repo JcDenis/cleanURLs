@@ -16,7 +16,7 @@ Ce plugin n'a pas de page d'administration et n'ajoute rien sur le blog. Il agit
 
 Quand vous donnez vous-même l'adresse d'un billet, Dotclear la garde telle quelle : accents, ponctuation, espaces. Ce n'est pas joli dans un navigateur.
 
-_Clean URLs_ nettoie cette adresse au moment de la création du billet : plus d'accents, plus de ponctuation.
+_Clean URLs_ nettoie cette adresse à chaque enregistrement du billet, à la création comme à la modification : plus d'accents, plus de ponctuation.
 
 ## Utiliser le plugin
 
@@ -36,16 +36,18 @@ Si vous laissez le champ vide, Dotclear fabrique déjà une adresse propre à pa
 
 ## Ce qui est nettoyé
 
-* **Les lettres accentuées** deviennent leur lettre simple : `é`, `à`, `ç`, `ñ`, `å` donnent `e`, `a`, `c`, `n`, `a`. Les ligatures sont développées : `œ` donne `oe`, `æ` donne `ae`, `ß` donne `ss`.
+* **Les lettres accentuées** deviennent leur lettre simple : `é`, `à`, `ç`, `ñ`, `å` donnent `e`, `a`, `c`, `n`, `a`. Les ligatures sont développées : `œ` donne `oe`, `æ` donne `ae`. Le `ß` donne `s`.
 * **Ces signes** deviennent un tiret : `,` `!` `.` `?` `;` `:` `@` `$` `«` `»` `°` `*`.
 
-Les apostrophes et les espaces sont déjà remplacés par un tiret par Dotclear.
+Les apostrophes et les espaces sont aussi remplacés par un tiret.
+
+Ensuite, les tirets en double sont réduits à un seul, et les tirets au début, à la fin et autour des `/` sont retirés.
 
 ## Exemples
 
 | Adresse saisie | Adresse enregistrée |
 |----------------|---------------------|
-| `Été à Noël, ça c'est bien!` | `Ete-a-Noel--ca-c-est-bien-` |
+| `Été à Noël, ça c'est bien!` | `Ete-a-Noel-ca-c-est-bien` |
 | `L'Œuvre.d'Ångström;ß` | `L-OEuvre-d-Angstrom-s` |
 | `Ünïcödé.Ñandú?` | `Unicode-Nandu` |
 
@@ -53,9 +55,9 @@ Sans le plugin, la première adresse serait enregistrée avec ses accents et sa 
 
 ## Bon à savoir
 
-* Le nettoyage n'a lieu qu'à la **création** du billet. Si vous modifiez l'adresse d'un billet existant, elle est enregistrée telle quelle.
-* Les billets déjà publiés ne sont pas modifiés.
+* Les billets déjà publiés ne sont pas modifiés tant que vous ne les enregistrez pas à nouveau. À la prochaine modification, leur adresse est nettoyée.
+* L'adresse nettoyée reste unique : si un autre billet l'utilise déjà, Dotclear la complète comme d'habitude. À la modification, si l'adresse nettoyée est déjà prise par un autre billet, l'adresse saisie est gardée telle quelle.
+* Une adresse composée seulement de signes de la liste (par exemple `.,;`) serait vide : l'adresse est alors fabriquée à partir du titre, comme si le champ était vide.
 * Les lettres d'autres alphabets (japonais, cyrillique…) ne sont pas converties. Elles restent dans l'adresse.
-* Les majuscules restent des majuscules, et les tirets en double ou en fin d'adresse ne sont pas supprimés.
-* Une adresse composée seulement de signes de la liste devient une suite de tirets (`.,;` donne `---`).
+* Les majuscules restent des majuscules.
 * Le plugin ne touche pas aux adresses des catégories ni des pages.
