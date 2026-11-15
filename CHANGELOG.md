@@ -1,3 +1,9 @@
+cleanURLs 1.9 - 2026.11.15
+===========================================================
+* Add Claude to contributors
+* [fix] Clean URLs on update too, reduce dashes, keep URLs unique and not empty
+* [docs] Add a user guide in French, with screenshots
+
 cleanURLs 1.8 - 2026.11.05
 ===========================================================
 * Bump Dotclear from 2.36 to 2.39

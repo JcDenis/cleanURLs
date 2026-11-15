@@ -22,7 +22,7 @@ $this->registerModule(
     'Clean URLs',
     'Removes diacritics and punctuation from URLs',
     'Pierre Rudloff and contributors',
-    '1.8',
+    '1.9',
     [
         'requires'    => [['core', '2.39']],
         'permissions' => 'My',
@@ -30,6 +30,6 @@ $this->registerModule(
         'support'     => 'https://github.com/JcDenis/' . $this->id . '/issues',
         'details'     => 'https://github.com/JcDenis/' . $this->id . '/',
         'repository'  => 'https://raw.githubusercontent.com/JcDenis/' . $this->id . '/master/dcstore.xml',
-        'date'        => '2026-11-04T23:33:48+00:00',
+        'date'        => '2026-11-15T09:45:17+00:00',
     ]
 );
