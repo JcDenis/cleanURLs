@@ -15,13 +15,15 @@ _cleanUrls_ is a plugin for the open-source web publishing software called [Dotc
 ## REQUIREMENTS
 
 * Dotclear 2.39
+* PHP 8.1+
 
 ## USAGE
 
 First install _cleanURLs_, manualy from a zip package or from 
 Dotclear plugins repository. (See Dotclear's documentation to know how do this)
 
-Then when a post is created, it's URL is cleaned automagically.
+Then when a post is created or updated, its URL is cleaned automagically:
+accents are removed, punctuation is replaced by dashes.
 
 ## LINKS
 
