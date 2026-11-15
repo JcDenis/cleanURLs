@@ -20,7 +20,7 @@ Required Dotclear and PHP versions: see `_define.php`.
 * `src/CleanURLs.php`: main class.
 * `src/My.php`: module helpers (`My::id()`, settings, permissions).
 * `src/Prepend.php`: loaded on every request: autoload, URL handlers, permission types.
-* Behaviors used: `coreBeforePostCreate`.
+* Behaviors used: `coreBeforePostCreate`, `coreBeforePostUpdate`.
 
 ## Pitfalls
 
