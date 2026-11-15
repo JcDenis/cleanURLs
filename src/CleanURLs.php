@@ -6,6 +6,7 @@ namespace Dotclear\Plugin\cleanURLs;
 
 use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Database\Cursor;
+use Dotclear\Helper\Text;
 
 /**
  * @brief       cleanURLs main class.
@@ -270,7 +271,21 @@ class CleanURLs
      * */
     public static function cleanStr(?string $str): ?string
     {
-        return is_null($str) ? null : self::charsToChar(self::removeAccents($str));
+        if (is_null($str)) {
+            return null;
+        }
+
+        $str = (string) self::charsToChar(self::removeAccents($str));
+
+        if (strlen(self::$convert_to_char) === 1) {
+            $c = preg_quote(self::$convert_to_char, '#');
+            // Reduce repeated chars, and remove them around slashes and at both ends
+            $str = (string) preg_replace('#' . $c . '{2,}#', self::$convert_to_char, $str);
+            $str = (string) preg_replace('#' . $c . '*/' . $c . '*#', '/', $str);
+            $str = trim($str, self::$convert_to_char . '/');
+        }
+
+        return $str;
     }
 
     /**
@@ -279,10 +294,34 @@ class CleanURLs
      * @param   BlogInterface   $blog   The blog instance
      * @param   Cursor          $cur    The post Cursor
      * */
-    public static function cleanPost(BlogInterface $blog, Cursor $cur): void
+    public static function cleanPost(BlogInterface $blog, Cursor $cur, int $post_id = 0): void
     {
-        if (is_string($cur->getField('post_url'))) {
-            $cur->setField('post_url', self::cleanStr($cur->getField('post_url')));
+        if (!is_string($url = $cur->getField('post_url')) || $url === '') {
+            return;
+        }
+
+        // Spaces to dashes first, as Dotclear does on post creation
+        $url = (string) self::cleanStr(Text::tidyURL($url));
+
+        // Cleaned URL must stay unique and not empty
+        $post_dt    = $cur->getField('post_dt');
+        $post_title = $cur->getField('post_title');
+        $post_id    = $post_id ?: (is_numeric($cur->getField('post_id')) ? (int) $cur->getField('post_id') : 0);
+        if (is_string($post_dt) && is_string($post_title) && $post_id > 0) {
+            if ($url === '') {
+                $url = (string) self::cleanStr($blog->getPostURL('', $post_dt, $post_title, $post_id));
+            }
+            $url = $blog->getPostURL($url, $post_dt, $post_title, $post_id);
+        } elseif ($url !== '') {
+            // Without post ID (on update), do not take the URL of another entry
+            $rs = $blog->getPosts(['post_url' => $url, 'post_type' => '', 'limit' => 1]);
+            if (!$rs->isEmpty() && ($rs->strField('post_dt') !== $post_dt || $rs->strField('post_title') !== $post_title)) {
+                return;
+            }
+        }
+
+        if ($url !== '') {
+            $cur->setField('post_url', $url);
         }
     }
 }

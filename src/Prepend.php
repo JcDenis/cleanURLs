@@ -30,7 +30,10 @@ class Prepend
             return false;
         }
 
-        App::behavior()->addBehavior('coreBeforePostCreate', CleanURLs::cleanPost(...));
+        App::behavior()->addBehaviors([
+            'coreBeforePostCreate' => CleanURLs::cleanPost(...),
+            'coreBeforePostUpdate' => CleanURLs::cleanPost(...),
+        ]);
 
         return true;
     }
